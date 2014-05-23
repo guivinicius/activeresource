@@ -1337,7 +1337,7 @@ module ActiveResource
       attributes = Formats.remove_root(attributes) if remove_root
 
       attributes.each do |key, value|
-        @attributes[key.to_s] =
+        @attributes[key.to_s.underscore] =
           case value
             when Array
               resource = nil
@@ -1586,4 +1586,3 @@ module ActiveResource
 
   ActiveSupport.run_load_hooks(:active_resource, Base)
 end
-
